@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario - Supermercado</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <h1>Supermercado - Inventario</h1>
+        <div>
+            <a href="{{ url_for('index') }}">Inicio</a>
+            <a href="{{ url_for('add_product') }}">Añadir Producto</a>
+            <a href="{{ url_for('show_inventory') }}">Ver Inventario</a>
+        </div>
+    </nav>
+
+    <!-- Contenedor principal -->
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>

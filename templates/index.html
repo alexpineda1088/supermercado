@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Bienvenido al Sistema Avanzado de Inventario</h2>
+    <p>
+        Este sistema permite gestionar los productos de tu supermercado de manera rápida y eficiente.  
+        Utiliza el menú de navegación para:
+    </p>
+
+    <ul>
+        <li><strong>Añadir Producto:</strong> Registrar un nuevo producto con su nombre, cantidad y precio.</li>
+        <li><strong>Ver Inventario:</strong> Consultar, editar o eliminar productos existentes.</li>
+        <li><strong>Buscar:</strong> Encontrar productos por nombre en el inventario.</li>
+    </ul>
+
+    <div style="margin-top:20px;">
+        <a href="{{ url_for('add_product') }}" class="btn btn-primary">➕ Añadir Producto</a>
+        <a href="{{ url_for('show_inventory') }}" class="btn btn-warning">📦 Ver Inventario</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>📦 Inventario de Productos</h2>
+
+    {% if productos %}
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Cantidad</th>
+                    <th>Precio ($)</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for producto in productos %}
+                <tr>
+                    <td>{{ producto[0] }}</td>
+                    <td>{{ producto[1] }}</td>
+                    <td>{{ producto[2] }}</td>
+                    <td>{{ "%.2f"|format(producto[3]) }}</td>
+                    <td>
+                        <a href="{{ url_for('update_product', id=producto[0]) }}" class="btn btn-warning">✏️ Editar</a>
+                        <a href="{{ url_for('delete_product', id=producto[0]) }}" class="btn btn-danger" onclick="return confirm('¿Seguro que deseas eliminar este producto?');">🗑️ Eliminar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No hay productos en el inventario. <a href="{{ url_for('add_product') }}">Añade uno aquí</a>.</p>
+    {% endif %}
+
+    <div style="margin-top:20px;">
+        <a href="{{ url_for('add_product') }}" class="btn btn-primary">➕ Añadir Producto</a>
+    </div>
+{% endblock %}
